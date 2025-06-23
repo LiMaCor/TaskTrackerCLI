@@ -17,6 +17,13 @@ public class Functions {
         }
     }
 
+    public Path getTaskFilePath() {
+        Path currentDirectoryAbsPath = Path.of("").toAbsolutePath().getParent();
+        Path tasksFilePath = currentDirectoryAbsPath.resolve("tasks.json");
+
+        return tasksFilePath;
+    }
+
     public static Path createTasksFile() throws IOException {
         Path currentPath = Path.of("").toAbsolutePath().getParent();
         Path tasksFile = Files.createFile(currentPath.resolve("tasks.json"));
