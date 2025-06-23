@@ -19,10 +19,10 @@ public class Functions {
         }
     }
 
-    public static void createTasksFile() throws IOException {
+    public static Path createTasksFile() throws IOException {
         Path currentPath = Path.of("").toAbsolutePath().getParent();
         Path tasksFile = Files.createFile(currentPath.resolve("tasks.json"));
 
-        Files.write(tasksFile, Arrays.asList("[", "]"), StandardCharsets.UTF_8);
+        return tasksFile;
     }
 }
