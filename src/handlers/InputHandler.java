@@ -15,13 +15,19 @@ public class InputHandler {
         this.inputs = inputs;
     }
 
-    public void handleOperations() {
+    public void handleOperations(TaskHandler taskHandler) {
         if (this.inputs.length > 0) {
             String operation = this.inputs[0];
 
             switch (operation) {
                 case "add": {
+                    if (inputs.length < 2) {
+                        System.out.println("Usage: TaskTrackerCLI add <description>");
+                        return;
+                    }
 
+                    taskHandler.addTask(inputs[1]);
+                    break;
                 }
                 case "update": {
 
