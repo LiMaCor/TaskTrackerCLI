@@ -69,4 +69,12 @@ public class TaskHandler {
 
         return loadedTasks;
     }
+
+    public void addTask(String description) {
+        Task newTask = new Task(description);
+
+        this.tasks.add(newTask);
+
+        System.out.println("Task with id " + newTask.getId() + " has been successfully added.");
+    }
 }
