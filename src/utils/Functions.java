@@ -17,7 +17,7 @@ public class Functions {
         }
     }
 
-    public Path getTaskFilePath() {
+    public static Path getTaskFilePath() {
         Path currentDirectoryAbsPath = Path.of("").toAbsolutePath().getParent();
         Path tasksFilePath = currentDirectoryAbsPath.resolve("tasks.json");
 
