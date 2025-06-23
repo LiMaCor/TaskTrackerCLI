@@ -1,8 +1,10 @@
 package utils;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 
 public class Functions {
 
@@ -19,7 +21,8 @@ public class Functions {
 
     public static void createTasksFile() throws IOException {
         Path currentPath = Path.of("").toAbsolutePath().getParent();
-
         Path tasksFile = Files.createFile(currentPath.resolve("tasks.json"));
+
+        Files.write(tasksFile, Arrays.asList("[", "]"), StandardCharsets.UTF_8);
     }
 }
