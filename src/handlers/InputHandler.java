@@ -1,5 +1,7 @@
 package handlers;
 
+import model.Status;
+
 public class InputHandler {
     protected String[] inputs;
 
@@ -75,12 +77,29 @@ public class InputHandler {
                     break;
                 }
                 case "list": {
+                    if (inputs.length < 2) {
+                        System.out.println("Usage: TaskTrackerCLI list <status>. Available status: todo, in-progress, done");
 
+                        taskHandler.listTasks("All");
+                    } else {
+                        Status inputStatus;
+                        try {
+                            inputStatus = Status.valueOf(inputs[1].toUpperCase().replace("-", "_"));
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("Invalid status: " + inputs[1]);
+                            break;
+                        }
+
+                        taskHandler.listTasks(inputStatus.toString());
+                    }
                 }
                 default: {
-
+                    System.out.println(operation + " is not a valid operation.");
+                    break;
                 }
             }
+
+            taskHandler.saveTasksToFile();
         }
     }
 }
