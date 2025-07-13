@@ -14,7 +14,7 @@ Simple command-line interface utility used to track and manage your tasks.
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/LiMaCor/TaskTrackerCLI.git
+git clone https://github.com/LiMaCor/TaskTrackerCLI
 cd TaskTrackerCLI
 ```
 2. **Compile the source code**
