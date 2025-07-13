@@ -39,7 +39,13 @@ public class InputHandler {
                     break;
                 }
                 case "delete": {
+                    if (inputs.length < 2) {
+                        System.out.println("Usage: TaskTrackerCLI delete <id>");
+                        return;
+                    }
 
+                    taskHandler.deleteTask(inputs[1]);
+                    break;
                 }
                 case "mark-todo": {
 
