@@ -45,3 +45,7 @@ java TaskTrackerCLI mark-done 1
 java TaskTrackerCLI list all
 java TaskTrackerCLI list in-progress
 ```
+
+## References
+
+Project idea based in the following project: https://roadmap.sh/projects/task-tracker
