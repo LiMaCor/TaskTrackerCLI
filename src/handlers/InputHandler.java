@@ -48,13 +48,31 @@ public class InputHandler {
                     break;
                 }
                 case "mark-todo": {
+                    if (inputs.length < 2) {
+                        System.out.println("Usage: TaskTrackerCLI mark-todo <id>");
+                        return;
+                    }
 
+                    taskHandler.markToDo(inputs[1]);
+                    break;
                 }
                 case "mark-in-progress": {
+                    if (inputs.length < 2) {
+                        System.out.println("Usage: TaskTrackerCLI mark-in-progress <id>");
+                        return;
+                    }
 
+                    taskHandler.markInProgress(inputs[1]);
+                    break;
                 }
                 case "mark-done": {
+                    if (inputs.length < 2) {
+                        System.out.println("Usage: TaskTrackerCLI mark-done <id>");
+                        return;
+                    }
 
+                    taskHandler.markDone(inputs[1]);
+                    break;
                 }
                 case "list": {
 
