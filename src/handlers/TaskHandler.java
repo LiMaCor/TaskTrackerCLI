@@ -92,4 +92,19 @@ public class TaskHandler {
         Task task = getTask(id).orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found."));
         this.tasks.remove(task);
     }
+
+    public void markToDo(String id) {
+        Task task = getTask(id).orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found."));
+        task.markToDo();
+    }
+
+    public void markInProgress(String id) {
+        Task task = getTask(id).orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found."));
+        task.markInProgress();
+    }
+
+    public void markDone(String id) {
+        Task task = getTask(id).orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found."));
+        task.markToDo();
+    }
 }
