@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TaskHandler {
     protected final Path FILE_PATH;
@@ -70,6 +71,10 @@ public class TaskHandler {
         return loadedTasks;
     }
 
+    public Optional<Task> getTask(String id) {
+        return this.tasks.stream().filter((task) -> task.getId() == Integer.parseInt(id)).findFirst();
+    }
+
     public void addTask(String description) {
         Task newTask = new Task(description);
 
@@ -77,4 +82,11 @@ public class TaskHandler {
 
         System.out.println("Task with id " + newTask.getId() + " has been successfully added.");
     }
+
+    public void updateTask(String id, String updatedDescription) {
+        Task task = getTask(id).orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found."));
+        task.setDescription(updatedDescription);
+    }
+
+
 }
