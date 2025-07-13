@@ -30,7 +30,13 @@ public class InputHandler {
                     break;
                 }
                 case "update": {
+                    if (inputs.length < 3) {
+                        System.out.println("Usage: TaskTrackerCLI update <id> <new description>");
+                        return;
+                    }
 
+                    taskHandler.updateTask(inputs[1], inputs[2]);
+                    break;
                 }
                 case "delete": {
 
