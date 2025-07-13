@@ -107,4 +107,14 @@ public class TaskHandler {
         Task task = getTask(id).orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found."));
         task.markToDo();
     }
+
+    public void listTasks(String status) {
+        for (Task task : this.tasks) {
+            String taskStatus = task.getStatus().toString().strip();
+
+            if (status.equals("All") || taskStatus.equals(taskStatus)) {
+                System.out.println(task.toString());
+            }
+        }
+    }
 }
