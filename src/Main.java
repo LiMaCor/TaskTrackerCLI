@@ -9,6 +9,12 @@ public class Main {
         TaskHandler taskHandler;
 
         try {
+
+            if (args.length < 1) {
+                System.out.println("Usage: TaskTrackerCLI <command> [arguments]");
+                return;
+            }
+
             if (!validateInitialFileStructure()) {
                 taskHandler = new TaskHandler(createTasksFile());
             } else {
