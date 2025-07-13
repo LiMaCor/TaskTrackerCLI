@@ -60,6 +60,11 @@ public class Task {
         this.updatedAt = updatedAt;
     }
 
+    public void markToDo() {
+        setStatus(Status.TODO);
+        setUpdatedAt(LocalDateTime.now());
+    }
+
     public void markInProgress() {
         setStatus(Status.IN_PROGRESS);
         setUpdatedAt(LocalDateTime.now());
