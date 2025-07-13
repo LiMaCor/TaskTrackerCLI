@@ -88,5 +88,8 @@ public class TaskHandler {
         task.setDescription(updatedDescription);
     }
 
-
+    public void deleteTask(String id) {
+        Task task = getTask(id).orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found."));
+        this.tasks.remove(task);
+    }
 }
